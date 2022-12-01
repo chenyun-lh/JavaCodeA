@@ -15,8 +15,8 @@ public class Student {
     private String name; // 姓名
     private int age; // 年龄
 
-//    public Student() {
-//    }
+    public Student() {
+    }
 
     public Student(String name, int age) {
         this.name = name;

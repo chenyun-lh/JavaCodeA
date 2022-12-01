@@ -12,14 +12,14 @@ public class JdbcDemo1 {
 
         //1. 导入驱动jar包
         //2.注册驱动
-        // Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         //3.获取数据库连接对象
 //        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db3", "root", "root");
 //        Connection conn = DriverManager.getConnection("jdbc:mysql:///db3", "root", "root");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ngy_dev", "root", "abc123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?useSSL=false", "root", "abc123");
         //4.定义sql语句
-//        String sql = "update account set balance = 2000 where id = 1";
-        String sql = "update account set balance = 2000";
+        String sql = "update account set balance = 1000 where id = 1";
+//        String sql = "update account set balance = 2000";
         //5.获取执行sql的对象 Statement
         Statement stmt = conn.createStatement();
         //6.执行sql
@@ -32,3 +32,16 @@ public class JdbcDemo1 {
 
     }
 }
+//jdk1.8 连接驱动5.1.26 mysql5.7 可以
+//jdk1.8 连接驱动5.1.26 mysql8.x 不行
+//jdk1.8 连接驱动8.0.12 mysql5.7 可以
+//jdk1.8 连接驱动8.0.12 mysql8.x 可以
+//jdk11 连接驱动5.1.26 mysql5.7 可以
+//jdk11 连接驱动5.1.26 mysql8.x 不行
+//jdk11 连接驱动8.0.12 mysql5.7 可以
+//jdk11 连接驱动8.0.12 mysql8.x 可以
+
+//?serverTimezone=GMT%2B8 ?serverTimezone=UTC
+//mysql设置时区命令
+//show variables like '%time_zone%';
+//set global time_zone='+8:00';
